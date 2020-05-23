@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Service(models.Model):
@@ -6,8 +7,7 @@ class Service(models.Model):
         verbose_name="Título")
     subtitle = models.CharField(max_length=200, 
         verbose_name="Subtítulo")
-    content = models.TextField(
-        verbose_name="Contenido")
+    content = RichTextField(verbose_name="Contenido")
     image = models.ImageField(verbose_name="Imagen", 
         upload_to="services")
     created = models.DateTimeField(auto_now_add=True, 
